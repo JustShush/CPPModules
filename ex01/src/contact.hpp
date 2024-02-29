@@ -1,7 +1,11 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#include <iostream>
+# include "header.hpp"
+
+# include <iostream>
+# include <iomanip>		// std::setw
+# include <stdlib.h>
 
 class Contact
 {
@@ -9,11 +13,15 @@ class Contact
 		std::string firstName;
 		std::string lastName;
 		std::string nickName;
-		int phoneNbr;
+		std::string phoneNbr;
 		std::string darkS;
 	public:
 		Contact();
 		~Contact();
+		Contact add(void);
+		std::string input_field(std::string str);
+		std::string get_field(int i);
+		int s_isdigit(std::string str);
 };
 
 #endif

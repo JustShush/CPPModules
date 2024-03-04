@@ -108,3 +108,17 @@ void	Account::displayStatus(void) const {
 	std::cout << ";deposits:" << _nbDeposits;
 	std::cout << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
+
+/* std::string _displayTimestamp(void) {
+	// Get the current time point
+	auto now = std::chrono::system_clock::now();
+
+	// Convert the time point to a time_t object
+	std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
+
+	// Format the time using std::put_time
+	std::ostringstream oss;
+	oss << std::put_time(std::localtime(&currentTime), "%Y%m%d_%H%M%S");
+
+	return oss.str();
+} */

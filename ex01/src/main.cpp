@@ -10,7 +10,7 @@ int	main(void)
 	std::string input;
 	PhoneBook phone;
 	
-	while (input != "EXIT" || input != "exit") {
+	while (input != "EXIT") {
 		std::cout << GREEN << "ADD " << RESET << ORANGE << "SEARCH " << RESET << RED << "EXIT" << RESET << "\n";
 		std::cin >> input;
 		if (i >= 8)

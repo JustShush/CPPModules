@@ -8,8 +8,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	int j = 1;
-	int i = 0;
 	while (argv[j]) {
+		int i = 0;
 		while (argv[j][i]) {
 			std::cout << (char)toupper(argv[j][i]);
 			i++;

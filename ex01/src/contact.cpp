@@ -15,7 +15,7 @@ std::string Contact::input_field(std::string str) {
 			continue;
 		}
 		if (str.compare("Phone Number") == 0 && s_isdigit(field)) {
-			std::cout << BRED << "Ivalid Phone Number!!\n" << RESET;
+			std::cout << BRED << "Invalid Phone Number!!\n" << RESET;
 			continue;
 		}
 		return (field);

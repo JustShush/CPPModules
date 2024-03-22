@@ -12,6 +12,7 @@ class PhoneBook
 		~PhoneBook();
 		void show(void);
 		void addContact(int index);
+		std::string truncate(std::string str);
 };
 
 #endif

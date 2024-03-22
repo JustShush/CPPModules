@@ -1,12 +1,12 @@
 # -*- MakeFile -*-
 
-NAME = phonebook
+NAME = Account
 
 CC = @c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = Account.cpp
+SRC = tests.cpp Account.cpp
 
 OBJ_DIR = obj
 

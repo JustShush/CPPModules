@@ -1,26 +1,20 @@
 #include "contact.hpp"
 
-Contact::Contact() {
-	std::cout << BGREEN << "New Contact Created!" << RESET << "\n";
-}
+Contact::Contact() {}
 
-Contact::~Contact() {
-	std::cout << BRED << "Contact Destroyed!" << RESET << "\n";
-}
+Contact::~Contact() {}
 
 std::string Contact::input_field(std::string str) {
 	std::string field;
 	while (1) {
 		std::cout << "Enter " << str << ": ";
-		//std::cout << std::getline(std::cin, field);
-		//if (!getline(std::cin, field)) break;
 		std::cin >> field;
 		std::cout << field << "\n";
 		if (field.empty()) {
 			std::cout << BRED << "Field can\'t be EMPTY!\n" << RESET;
 			continue;
 		}
-		if (str.compare("Phone Number") == 0 && !s_isdigit(field)) {
+		if (str.compare("Phone Number") == 0 && s_isdigit(field)) {
 			std::cout << BRED << "Ivalid Phone Number!!\n" << RESET;
 			continue;
 		}
@@ -55,21 +49,13 @@ std::string Contact::get_field(int i) {
 	return (0);
 }
 
-int Contact::s_isdigit(std::string str) {
-	if (str.empty())
+int Contact::s_isdigit(std::string str)
+{
+	std::string::const_iterator iterator;
+	iterator = str.begin();
+	while (iterator != str.end() && std::isdigit(*iterator))
+		iterator++;
+	if (str.end() == iterator)
 		return (0);
-
-	size_t i = 0;
-	if (i >= str.length() || !isdigit(str[i])) {
-		std::cout << BCYAN << str[i] << "\n";
-		return (0);
-	}
-
-	while (i < str.length()) {
-		if (!isdigit(str[i]))
-			return (0);
-		std::cout << BCYAN << str[i] << "\n";
-		++i;
-	}
 	return (1);
 }

@@ -12,6 +12,7 @@
 # define PURPLE "\033[0;35m"
 # define CYAN "\033[0;36m"
 # define WHITE "\033[0;37m"
+# define ORANGE "\x1b[38;2;255;165;0m" // ANSI escape code for orange
 
 // Bold
 # define BBLACK "\033[1;30m"
@@ -75,5 +76,24 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
+/*
+\x1b: This is the escape character in hexadecimal notation (equivalent to \033 in octal notation or \e in some other representations). It signals the terminal that what follows is a control sequence rather than ordinary characters.
+
+[38;2;255;165;0m: This is the ANSI escape sequence itself. Let's break it down further:
+
+38: This part indicates that the following color code applies to the foreground (text) color. In contrast, 48 would indicate the background color.
+
+2: This specifies that the color will be specified in RGB (red, green, blue) format. This is used to specify true color, allowing for a wider range of colors than the standard 16-color palette.
+
+255;165;0: These are the RGB values for the color. In this case:
+
+255 represents the intensity of red.
+165 represents the intensity of green.
+0 represents the intensity of blue.
+Together, these values produce an orange color. The RGB values are on a scale from 0 to 255, where 0 represents no intensity and 255 represents full intensity for each color component.
+
+m: This terminates the ANSI escape sequence, indicating that the color attributes have been set.
+*/
 
 #endif

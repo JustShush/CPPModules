@@ -17,7 +17,7 @@ Account::Account(int initial_deposit) {
 	this->_totalAmount += initial_deposit;
 
 	Account::_displayTimestamp();
-	std::cout << "index:" << _accountIndex;
+	std::cout << " index:" << _accountIndex;
 	std::cout << ";ammount" << initial_deposit << ";created\n";
 }
 
@@ -95,9 +95,6 @@ bool	Account::makeWithdrawal(int withdrawal) {
 		std::cout << ";withdrawal:refused\n";
 		return (1);
 	}
-	//return (0);
-
-	std::cout << ";withdrawal:" << withdrawal;
 	return (0);
 }
 
@@ -109,16 +106,17 @@ void	Account::displayStatus(void) const {
 	std::cout << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-/* std::string _displayTimestamp(void) {
-	// Get the current time point
-	auto now = std::chrono::system_clock::now();
+void	Account::_displayTimestamp( void )
+{
+	time_t	t;
+	tm * now;
 
-	// Convert the time point to a time_t object
-	std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
-
-	// Format the time using std::put_time
-	std::ostringstream oss;
-	oss << std::put_time(std::localtime(&currentTime), "%Y%m%d_%H%M%S");
-
-	return oss.str();
-} */
+	t = time(0);
+	now = localtime(&t);
+	std::cout << "[" << now->tm_year + 1900;
+	if (now->tm_mon + 1 <= 10)
+		std::cout << "0";
+	std::cout << now->tm_mon + 1;
+	std::cout << now->tm_mday << "_" << now->tm_hour << now->tm_min;
+	std::cout << now->tm_sec << "]";
+}

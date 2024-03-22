@@ -15,6 +15,13 @@ void PhoneBook::addContact(int index) {
 	contacts[index] = contact.add();
 }
 
+std::string	PhoneBook::truncate(std::string str)
+{
+	if (str.length() > 10)
+		return (str.substr(0, 8) + "..");
+	return (str);
+}
+
 void PhoneBook::show() {
 	int i = 0;
 	std::string input;
@@ -22,11 +29,11 @@ void PhoneBook::show() {
 	while (i < 8) {
 
 		std::cout << "|" << std::setw(10) << i << "|";
-		std::cout << std::setw (10) << contacts[i].get_field(1) << "|";
-		std::cout << std::setw (10) << contacts[i].get_field(2) << "|";
-		std::cout << std::setw (10) << contacts[i].get_field(3) << "|";
-		std::cout << std::setw (10) << contacts[i].get_field(4) << "|";
-		std::cout << std::setw (10) << contacts[i].get_field(5) << "|";
+		std::cout << std::setw (10) << truncate(contacts[i].get_field(1)) << "|";
+		std::cout << std::setw (10) << truncate(contacts[i].get_field(2)) << "|";
+		std::cout << std::setw (10) << truncate(contacts[i].get_field(3)) << "|";
+		std::cout << std::setw (10) << truncate(contacts[i].get_field(4)) << "|";
+		std::cout << std::setw (10) << truncate(contacts[i].get_field(5)) << "|";
 		std::cout << "\n";
 		i++;
 	}

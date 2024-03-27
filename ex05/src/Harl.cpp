@@ -11,7 +11,7 @@ Harl::~Harl() {
 void	Harl::debug(void) {
 	std::cout << "[DEBUG]\n";
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup ";
-	std::cout <<	"burger. I really do!\n";
+	std::cout << "burger. I really do!\n";
 }
 
 void	Harl::info(void) {
@@ -33,7 +33,7 @@ void	Harl::error(void) {
 
 void	Harl::complain(std::string level)
 {
-	int		i;
+	int		i = 0;
 	Harl	object;
 
 	void	(Harl::*member_ptr[4])() = {
@@ -44,7 +44,6 @@ void	Harl::complain(std::string level)
 		};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	i = 0;
 	while (i < 4)
 	{
 		if (level == levels[i])

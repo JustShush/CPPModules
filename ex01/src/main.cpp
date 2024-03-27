@@ -1,16 +1,22 @@
-#include "../inc/Zombie.hpp"
+#include "../inc/Fixed.hpp"
 
-int main() {
+int	main() {
+	Fixed a;
+	Fixed const b(10);
+	Fixed const c(42.42f);
+	Fixed const d(b);
 
-	Zombie	zombie;
-	Zombie	*pZombie;
+	a = Fixed(1234.4321f);
 
-	pZombie = zombie.zombieHorde(1, "test");
-	delete[] pZombie;
-	pZombie = zombie.zombieHorde(5, "test5");
-	delete[] pZombie;
-	pZombie = zombie.zombieHorde(10, "test10");
-	delete[] pZombie;
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
 
-	return (0);
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+	return 0;
 }

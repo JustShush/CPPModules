@@ -1,16 +1,18 @@
 # -*- MakeFile -*-
 
-NAME = ThisIsBrain
+NAME = Fixed
 
 CC = @c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = main.cpp
+SRC = main.cpp Fixed.cpp
+
+SRCS = $(addprefix src/, $(SRC))
 
 OBJ_DIR = obj
 
-OBJS = $(SRC:.cpp=.o)
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
 # Reset
 Color_Off='\033[0m'       # Text Reset
@@ -101,18 +103,19 @@ $(NAME): $(OBJS)
 	${HOWTO}
 
 $(OBJ_DIR)/%.o: $(SRCS)
-		@$(CC) $(CFLAGS) -o $@ -c $<
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 a: all
 	@$(CTRL_L)
 
 clean:
 	@$(CTRL_L)
-	@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME) ${OBJ_DIR}
 	$(MSG2)
 
 fclean: clean
-	@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME) ${OBJ_DIR}
 	$(MSG3)
 
 re: fclean all

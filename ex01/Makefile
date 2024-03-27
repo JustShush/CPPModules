@@ -1,12 +1,12 @@
 # -*- MakeFile -*-
 
-NAME = ZombieHorde
+NAME = Fixed
 
 CC = @c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp Zombie.cpp zombieHorde.cpp
+SRC = main.cpp Fixed.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 

@@ -33,8 +33,7 @@ class	ClapTrap
 		 * Just Checks if the player can attack or not
 		 * @returns true if the player cant attack
 		*/
-		int		check(void);
-		void	attack(const std::string &target);
+		int		check(void);		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };

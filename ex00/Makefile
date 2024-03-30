@@ -1,6 +1,6 @@
 # -*- MakeFile -*-
 
-NAME = Fixed
+NAME = ClapTrap
 
 CC = @c++
 

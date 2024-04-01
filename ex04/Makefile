@@ -112,6 +112,7 @@ a: all
 clean:
 	@$(CTRL_L)
 	@/bin/rm -rf $(NAME) ${OBJ_DIR}
+	@/bin/rm -rf *.replace
 	$(MSG2)
 
 fclean: clean

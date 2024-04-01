@@ -5,7 +5,8 @@
 
 # include <iostream>
 # include <fstream>
+# include <string>
 
-std::string replace(std::string filename, std::string s1, std::string s2);
+void replace(std::string filename, std::string s1, std::string s2);
 
 #endif

@@ -1,8 +1,8 @@
-#include "../inc/Replacer.h"
+#include "../inc/Replacer.hpp"
 
 int	main(int argc, char *argv[]) {
 
-	if (argc <= 4) {
+	if (argc != 4) {
 		std::cout << "Invalid number of args\n";
 		return (-1);
 	}

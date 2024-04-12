@@ -2,9 +2,9 @@
 
 NAME = FragTrap
 
-CC = @c++
+CXX = @c++
 
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
@@ -98,13 +98,13 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CTRL_L)
-	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(SRCS) -o $(NAME)
 	$(MSG1)
 	${HOWTO}
 
 $(OBJ_DIR)/%.o: $(SRCS)
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 a: all
 	@$(CTRL_L)

@@ -1,16 +1,16 @@
 #include "../inc/ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap() {
-	setHp(100);
-	setEnergy(50);
-	setAttack(20);
+	_hp = 100;
+	_energy = 50;
+	_attack = 20;
 	std::cout << GREEN << "ScavTrap Default Constructor Called" << RESET << "\n";
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	setHp(100);
-	setEnergy(50);
-	setAttack(20);
+	_hp = 100;
+	_energy = 50;
+	_attack = 20;
 	std::cout << GREEN << "ScavTrap Name Constructor Called" << RESET << "\n";
 }
 
@@ -32,11 +32,10 @@ ScavTrap::~ScavTrap() {
 void ScavTrap::attack(const std::string& target) {
 	if (check()) return ;
 
-	int energy = getEnergy();
-	setEnergy(energy--);
-	std::cout << "ScavTrap " << getName() << " attacked " << target << " dealing " << getAttack() << " points of damage!\n";
+	_energy -= 1;
+	std::cout << "ScavTrap " << _name << " attacked " << target << " dealing " << _attack << " points of damage!\n";
 }
 
 void	ScavTrap::guardGate(void) {
-	std::cout << RED << "ScavTrap " << getName() << " is in Gate Keeper mode." << RESET << "\n";
+	std::cout << RED << "ScavTrap " << _name << " is in Gate Keeper mode." << RESET << "\n";
 }

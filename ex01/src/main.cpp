@@ -5,9 +5,7 @@ int main() {
 	ScavTrap p1("player1");
 	ScavTrap p2("player2");
 
-	p1.getAttack();
-	p1.getHp();
-	p1.getEnergy();
+	p1.getStats();
 	std::cout << "\n";
 
 	p1.attack(p2.getName());
@@ -27,8 +25,6 @@ int main() {
 	p1.getHp();
 	std::cout << "\n";
 
-	std::cout << p1.getName() << " got a power boost!\n";
-	p1.setAttack(40);
 	p2.guardGate();
 	p1.attack(p2.getName());
 	p2.takeDamage(p1.getAttack());
@@ -42,7 +38,6 @@ int main() {
 	std::cout << "\n";
 
 	p1.getEnergy();
-	p1.setEnergy(0);
 	p1.attack("player2");
 
 	return (0);

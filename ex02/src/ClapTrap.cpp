@@ -38,28 +38,13 @@ int	ClapTrap::getAttack() {
 	return (_attack);
 }
 
-void	ClapTrap::setHp(unsigned int amount) {
-	_hp = amount;
-	std::cout << ORANGE << _name << RESET << " HP has been set to: " << GREEN << amount << RESET << "\n";
-}
-
-void	ClapTrap::setEnergy(unsigned int amount) {
-	_energy = amount;
-	std::cout << ORANGE << _name << RESET << " Energy has been set to: " << GREEN << amount << RESET << "\n";
-}
-
-void	ClapTrap::setAttack(unsigned int amount) {
-	_attack = amount;
-	std::cout << ORANGE << _name << RESET << " Attack has been set to: " << GREEN << amount << RESET << "\n";
-}
-
 int		ClapTrap::check(void) {
 	if (_energy <= 0) {
-		std::cout << getName() << " is out of energy points!\n";
+		std::cout << _name << " is out of energy points!\n";
 		return (1);
 	}
 	if (_hp <= 0) {
-		std::cout << getName() << " has no hp left!\n";
+		std::cout << _name << " has no hp left!\n";
 		return (1);
 	}
 	return (0);
@@ -74,12 +59,12 @@ void ClapTrap::attack(const std::string &target) {
 void	ClapTrap::takeDamage(unsigned int amount) {
 	if (amount > 0) {
 		_hp -= amount;
-		std::cout << "ClapTrap " << getName() << " took " << amount << " points of damage.\n";
+		std::cout << "ClapTrap " << _name << " took " << amount << " points of damage.\n";
 	}
 	if (_hp <= 0) {
 		_hp = 0;
 		_attack = 0;
-		std::cout << "ClapTrap " << getName() << " died!\n";
+		std::cout << "ClapTrap " << _name << " died!\n";
 	}
 }
 
@@ -88,5 +73,5 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	if (amount + _hp > 10) _hp = 10;
 	else _hp += amount;
 	_energy--;
-	std::cout << "ClapTrap " << getName() << " repaired " << amount << " health points\n";
+	std::cout << "ClapTrap " << _name << " repaired " << amount << " health points\n";
 }

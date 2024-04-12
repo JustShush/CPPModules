@@ -7,7 +7,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 		std::string		_name;
 		int	_hp;
 		int	_energy;
@@ -19,21 +19,15 @@ class	ClapTrap
 		ClapTrap(const ClapTrap &copy);
 		~ClapTrap();
 
-		// Getters | Setters
+		// Getters
 		void			getStats();
 		std::string		getName();
 		int				getHp();
 		int				getEnergy();
 		int				getAttack();
-		void			setHp(unsigned int amount);
-		void			setEnergy(unsigned int amount);
-		void			setAttack(unsigned int amount);
 
-		/**
-		 * Just Checks if the player can attack or not
-		 * @returns true if the player cant attack
-		*/
-		int		check(void);		void	attack(const std::string &target);
+		int		check(void);
+		virtual void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };

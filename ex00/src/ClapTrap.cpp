@@ -70,7 +70,7 @@ int	ClapTrap::check() {
 void ClapTrap::attack(const std::string &target) {
 	if (check()) return ;
 	_energy -= 1;
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attack << " points of damage!";
+	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attack << " points of damage!\n";
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {

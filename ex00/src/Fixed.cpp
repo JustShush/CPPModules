@@ -1,38 +1,32 @@
 #include "../inc/Fixed.hpp"
 
 // ---------------------- Orthodox Canonical Form -----------------------------
-Fixed::Fixed()
-{
-	std::cout << GREEN << "Default Constructor Called" << RESET << "\n";
+Fixed::Fixed() {
 	value = 0;
+	std::cout << GREEN << "Default Constructor Called" << RESET << "\n";
 }
 
-Fixed::Fixed(const Fixed &t)
-{
+Fixed::Fixed(const Fixed &t) {
 	std::cout << GREEN << "Copy Constructor Called" << RESET << "\n";
 	*this = t;
 }
 
-Fixed& Fixed::operator=(const Fixed &t)
-{
+Fixed& Fixed::operator=(const Fixed &t) {
 	std::cout << GREEN << "Copy Assignment Operator Called" << RESET << "\n";
 	value = t.value;
 	return (*this);
 }
 
-Fixed::~Fixed()
-{
+Fixed::~Fixed() {
 	std::cout << RED << "Destructor Called" << RESET << "\n";
 }
 // ---------------------- Orthodox Canonical Form -----------------------------
 
-int Fixed::getRawBits(void) const
-{
+int Fixed::getRawBits(void) const {
 	std::cout << YELLOW << "getRawBits Member Function Called" << RESET << "\n";
 	return(value);
 }
 
-void	Fixed::setRawBits(int const raw)
-{
+void	Fixed::setRawBits(int const raw) {
 	value = raw;
 }

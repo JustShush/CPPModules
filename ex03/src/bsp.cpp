@@ -20,7 +20,7 @@ bool	checkTriangle(Point const a, Point const b, Point const c) {
 	return (0);
 }
 
-bool bsp( Point const a, Point const b, Point const c, Point const point) {
+bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	Fixed A = area(a, b ,c);
 	if (A == 0)
 		return (0);

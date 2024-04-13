@@ -18,6 +18,15 @@ ClapTrap::~ClapTrap() {
 	std::cout << RED << "Destructor Called" << RESET << "\n";
 }
 
+ClapTrap& ClapTrap::operator=(const ClapTrap &copy_a) {
+	_name = copy_a._name;
+	_hp = copy_a._hp;
+	_energy = copy_a._energy;
+	_attack = copy_a._attack;
+	std::cout << GREEN << "Copy Assignment Operator Called" << RESET << std::endl;
+	return (*this);
+}
+
 // Getters | Setters
 std::string ClapTrap::getName() {
 	return (_name);

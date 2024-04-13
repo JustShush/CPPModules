@@ -19,6 +19,8 @@ class	ClapTrap
 		ClapTrap(const ClapTrap &copy);
 		~ClapTrap();
 
+		ClapTrap& operator=(const ClapTrap &copy_a);
+
 		// Getters
 		void			getStats();
 		std::string		getName();

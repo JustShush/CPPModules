@@ -37,11 +37,8 @@ int main() {
 
 	p2.attack(p1.getName());
 	p1.takeDamage(p2.getAttack());
-	p1.takeDamage(p2.getAttack());
-	p1.getHp();
 	std::cout << "\n";
 
-	p1.getEnergy();
 	p1.setEnergy(0);
 	p1.attack("player2");
 

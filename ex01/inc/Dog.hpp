@@ -15,13 +15,13 @@ class	Dog : public Animal
 	public:
 		/* ++ Orthodox Canonical Form ++ */
 		Dog();
-		Dog(const Dog &copy);
+		Dog(const Dog &_copy);
 		~Dog();
 		Dog&	operator=(const Dog &t);
 		/* ++ Orthodox Canonical Form ++ */
 
 		void	makeSound(void) const;
-		Brain getBrain(void);
+		Brain	*getBrain(void);
 
 };
 

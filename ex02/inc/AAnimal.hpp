@@ -5,23 +5,22 @@
 
 #include <iostream>
 
-class	Animal
+class	AAnimal
 {
 	protected:
 		std::string	type;
 
 	public:
 		/* ++ Orthodox Canonical Form ++ */
-		Animal();
-		Animal(const Animal &_copy);
-		virtual ~Animal();
-		Animal&	operator=(const Animal &_copy);
+		AAnimal();
+		AAnimal(const AAnimal &_copy);
+		virtual ~AAnimal();
+		AAnimal&	operator=(const AAnimal &_copy);
 		/* ++ Orthodox Canonical Form ++ */
 
-		Animal(std::string type);
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 		std::string		getType(void) const;
-		void	setType(std::string type);
+		void			setType(std::string type);
 
 };
 

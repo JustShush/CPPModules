@@ -1,23 +1,23 @@
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "./header.hpp"
 
 # include <iostream>
-# include "./Animal.hpp"
+# include "./AAnimal.hpp"
 # include "./Brain.hpp"
 
-class	Cat : public Animal
+class	Dog : public AAnimal
 {
 	private:
 		Brain *brain;
 
 	public:
 		/* ++ Orthodox Canonical Form ++ */
-		Cat();
-		Cat(const Cat &_copy);
-		~Cat();
-		Cat&	operator=(const Cat &_copy);
+		Dog();
+		Dog(const Dog &_copy);
+		~Dog();
+		Dog&	operator=(const Dog &t);
 		/* ++ Orthodox Canonical Form ++ */
 
 		void	makeSound(void) const;

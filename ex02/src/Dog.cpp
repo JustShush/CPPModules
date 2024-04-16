@@ -1,13 +1,13 @@
 #include "../inc/Dog.hpp"
 
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
-Dog::Dog() : Animal() {
-	type = "Dog";
+Dog::Dog() {
+	setType("Dog");
 	brain = new Brain();
 	std::cout << GREEN << "A new Dog as joined" << RESET << std::endl;
 }
 
-Dog::Dog(const Dog &_copy) : Animal() {
+Dog::Dog(const Dog &_copy) : AAnimal() {
 	this->brain = NULL;
 	*this = _copy;
 	std::cout << GREEN << "Dog Copy Constructor Called" << RESET << "\n";
@@ -22,7 +22,7 @@ Dog::~Dog() {
 Dog& Dog::operator=(const Dog &_copy) {
 	if (brain)
 		delete(brain);
-	Animal::operator=(_copy);
+	AAnimal::operator=(_copy);
 	this->type = _copy.type;
 	this->brain = new Brain(*_copy.brain);
 	std::cout << GREEN << "Dog Copy Assignment Operator Called" << RESET << "\n";
@@ -31,7 +31,7 @@ Dog& Dog::operator=(const Dog &_copy) {
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 
 void Dog::makeSound(void) const {
-	std::cout << ORANGE << type << " has made a Dog sound: **Bark**🐶" << RESET << std::endl;
+	std::cout << ORANGE << getType() << " has made a Dog sound: **Bark**🐶" << RESET << std::endl;
 }
 
 Brain *Dog::getBrain(void) {

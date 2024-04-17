@@ -31,7 +31,7 @@ Dog& Dog::operator=(const Dog &_copy) {
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 
 void Dog::makeSound(void) const {
-	std::cout << ORANGE << getType() << " has made a Dog sound: **Bark**🐶" << RESET << std::endl;
+	std::cout << ORANGE << getType() << " has made a Dog sound: **Ruff**🐶" << RESET << std::endl;
 }
 
 Brain *Dog::getBrain(void) {

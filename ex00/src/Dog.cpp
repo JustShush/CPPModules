@@ -27,5 +27,5 @@ Dog::Dog(std::string type) {
 }
 
 void Dog::makeSound(void) const {
-	std::cout << ORANGE << type << " has made a Dog sound: **Bark**🐶" << RESET << std::endl;
+	std::cout << ORANGE << type << " has made a Dog sound: **Ruff**🐶" << RESET << std::endl;
 }

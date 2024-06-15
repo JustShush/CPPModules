@@ -1,9 +1,8 @@
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
-Bureaucrat::Bureaucrat() : _name("Default") {
-	std::cout << GREEN << "Bureaucrat Default Constructor Called\n" << RESET;
-}
+Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) {
 	*this = copy;
@@ -63,6 +62,18 @@ void	Bureaucrat::decrement(int grade) {
 
 void	Bureaucrat::decrement(void) {
 	decrement(1);
+}
+
+void	Bureaucrat::signForm(Form &form) {
+	try {
+		form.beSign(*this);
+	}
+	catch(std::exception &e) {
+		std::cout << getName() << RED << " couldn't sign " << RESET << form.getName() << " because " << e.what() << "\n";
+	}
+	if (form.getSigned())
+		std::cout << getName() << GREEN << " signed " << RESET << form.getName() << "\n";
+	
 }
 
 /* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */

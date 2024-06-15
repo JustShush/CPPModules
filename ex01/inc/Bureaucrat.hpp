@@ -1,9 +1,11 @@
 #ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 # include "./header.hpp"
 
 # include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -32,6 +34,8 @@ public:
 	void decrement(int grade);
 	void decrement(void);
 
+	void signForm(Form &form);
+
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char *what() const throw();
@@ -44,7 +48,7 @@ public:
 
 };
 
-// Stream Operators
+//
 std::ostream &operator<<(std::ostream& out, const Bureaucrat &b);
 
 #endif

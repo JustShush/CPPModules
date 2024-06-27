@@ -1,12 +1,12 @@
 # -*- MakeFile -*-
 
-NAME = Converter
+NAME = Dynamic
 
 CXX = @c++
 
 CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp Converter.cpp toTypes.cpp
+SRC = main.cpp Base.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 

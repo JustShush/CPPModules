@@ -3,6 +3,11 @@
 
 # include "header.hpp"
 
+# include <iostream>
+# include <vector>
+# include <algorithm>
+# include <cstdlib>
+
 class Span
 {
 private:
@@ -17,9 +22,12 @@ public:
 	/* ++ Orthodox Canonical Form ++ */
 
 	Span(unsigned int n);
+
 	void addNumber(int i);
-	int shortestSpan(void);
-	int longestSpan(void);
+	int shortestSpan();
+	int longestSpan();
+	std::vector<int> &getArray();
+	void printArray();
 };
 
 #endif

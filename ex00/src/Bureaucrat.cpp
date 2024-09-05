@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(int grade, const std::string name) : _name(name) {
 	std::cout << GREEN << "Bureaucrat Grade Constructor Called\n" << RESET;
 	myExeception(grade);
 	_grade = grade;
-	std::cout << "Valid grade\n";
+	std::cout << BGREEN << "Valid grade" << RESET << std::endl;
 }
 
 const std::string Bureaucrat::getName() const {

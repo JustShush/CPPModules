@@ -23,21 +23,8 @@ int	main(void) {
 		catch(const std::exception& e) {
 			std::cout << e.what() << '\n';
 		}
-		/* try
-		{
-			Bureaucrat CEO(12, "CEO");
-			std::cout << CEO << "\n";
-			Bureaucrat	Supervisor(0, "Supervisor");
-			std::cout << Supervisor << "\n";
-			Bureaucrat	Worker(200, "Worker");
-			std::cout << Worker;
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << e.what() << '\n';
-		} */
 	}
-	std::cout << YELLOW << "\n******************** PART 1 ********************\n\n";
+	std::cout << BLUE << "\n******************** PART 1 ********************\n\n";
 	{
 		try {
 			Bureaucrat	CEO(1,"CEO");
@@ -52,7 +39,7 @@ int	main(void) {
 			std::cerr << e.what() << '\n';
 		}
 	}
-	std::cout << YELLOW << "\n******************** PART 2 ********************\n\n";
+	std::cout << BLUE << "\n******************** PART 2 ********************\n\n";
 	{
 		try {
 			Bureaucrat	CEO(150, "CEO");
@@ -67,7 +54,7 @@ int	main(void) {
 			std::cerr << e.what() << '\n';
 		}
 	}
-	std::cout << YELLOW << "\n******************** PART 3 ********************\n\n";
+	std::cout << BLUE << "\n******************** PART 3 ********************\n\n";
 	{
 		try {
 			Bureaucrat	CEO(50, "CEO");
@@ -79,7 +66,7 @@ int	main(void) {
 			std::cerr << e.what() << '\n';
 		}
 	}
-	std::cout << YELLOW << "\n******************** PART 4 ********************\n\n";
+	std::cout << BLUE << "\n******************** PART 4 ********************\n\n";
 	{
 		try {
 			Bureaucrat	CEO(50, "CEO");

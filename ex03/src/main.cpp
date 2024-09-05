@@ -21,8 +21,7 @@ int	main() {
 	form[2] = randomIntern.makeForm("presidential pardon", "Captain");
 	form[3] = randomIntern.makeForm("chloroform", "target");
 
-	for (int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++) {
 		if (!form[i])
 			break ;
 		Boss.signForm(*form[i]);
@@ -30,8 +29,7 @@ int	main() {
 
 	std::cout << "\n";
 
-	for (int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++) {
 		if (!form[i])
 			break ;
 		Boss.executeForm(*form[i]);

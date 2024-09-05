@@ -1,5 +1,5 @@
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 Bureaucrat::Bureaucrat() {}

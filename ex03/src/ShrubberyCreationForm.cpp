@@ -1,4 +1,4 @@
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
 
@@ -10,8 +10,8 @@ ShrubberyCreationForm::ShrubberyCreationForm() : _name("Shrubbery Request"), _si
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), _name(copy._name), _signGrade(145), _execGrade(137) {
-	std::cout << GREEN << "ShrubberyCreationForm Copy Constructor Called\n" << RESET;
 	*this = copy;
+	std::cout << GREEN << "ShrubberyCreationForm Copy Constructor Called\n" << RESET;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
@@ -19,8 +19,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy_a) {
-	std::cout << GREEN << "ShrubberyCreationForm Copy Assignment Operator Called\n" << RESET;
 	_signed = copy_a._signed;
+	std::cout << GREEN << "ShrubberyCreationForm Copy Assignment Operator Called\n" << RESET;
 	return (*this);
 }
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
@@ -69,7 +69,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	for (int i = 0; i < 10; i++) {
 		fileName << "                       ,@@@@@@@,\n               ,,,.   ,@@@@@@/@@,  .oo8888o.\n            ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n           ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n           %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n           %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n           `&%\\ ` /%&'    |.|        \\ '|8'\n               |o|        | |         | |\n               |.|        | |         | |\n           \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_\n";
 	}
-	std::cout << getTarget() << " file created sucessfully!\n";
+	std::cout << BGREEN << getTarget() << " file created sucessfully!\n" << RESET;
 	fileName.close();
 }
 

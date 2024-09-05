@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include "./header.hpp"
 
@@ -7,7 +7,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	const std::string _name;
@@ -17,13 +17,13 @@ private:
 
 public:
 	/* ++ Orthodox Canonical Form ++ */
-	Form();
-	Form(const Form &copy);
-	virtual ~Form();
-	Form &operator=(const Form &t);
+	AForm();
+	AForm(const AForm &copy);
+	virtual ~AForm();
+	AForm &operator=(const AForm &t);
 	/* ++ Orthodox Canonical Form ++ */
 
-	Form(const std::string name);
+	AForm(const std::string name);
 
 	// Getters
 	virtual const std::string getName(void) const;
@@ -35,7 +35,7 @@ public:
 	void setSign(bool sign);
 
 	void beSign(Bureaucrat &Bureaucrat);
-	void checkGrade(Form &form);
+	void checkGrade(AForm &AForm);
 
 	virtual void execute(Bureaucrat const &executor) const = 0;
 
@@ -57,6 +57,6 @@ public:
 };
 
 // Stream Operators
-std::ostream &operator<<(std::ostream& out, const Form &f);
+std::ostream &operator<<(std::ostream& out, const AForm &f);
 
 #endif

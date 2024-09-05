@@ -1,6 +1,6 @@
 # -*- MakeFile -*-
 
-NAME = Maggots
+NAME = Intern
 
 CXX = @c++
 

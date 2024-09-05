@@ -1,4 +1,4 @@
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
 

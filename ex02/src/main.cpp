@@ -3,7 +3,7 @@
 Base *generate(void) {
 	int random;
 
-	srand((unsigned) time(NULL));
+	srand(static_cast<unsigned int>(time(NULL)));
 	random = rand() % 3;
 
 	switch (random) {

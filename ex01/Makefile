@@ -1,6 +1,6 @@
 # -*- MakeFile -*-
 
-NAME = Maggots
+NAME = Form
 
 CXX = @c++
 

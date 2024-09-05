@@ -22,14 +22,17 @@ Intern& Intern::operator=(const Intern &copy_a) {
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 
 AForm	*Intern::returnPres(std::string target) {
+	std::cout << "Intern creates " << target << std::endl;
 	return (new PresidentialPardonForm(target));
 }
 
 AForm	*Intern::returnShrub(std::string target) {
+	std::cout << "Intern creates " << target << std::endl;
 	return (new ShrubberyCreationForm(target));
 }
 
 AForm	*Intern::returnRobot(std::string target) {
+	std::cout << "Intern creates " << target << std::endl;
 	return (new RobotomyRequestForm(target));
 }
 

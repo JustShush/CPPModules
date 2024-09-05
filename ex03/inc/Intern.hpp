@@ -6,7 +6,7 @@
 # include "../inc/RobotomyRequestForm.hpp"
 # include "../inc/ShrubberyCreationForm.hpp"
 
-class Form;
+class AForm;
 
 class Intern
 {
@@ -18,10 +18,10 @@ class Intern
 		Intern& operator=(const Intern &copy_a);
 		/* ++ Orthodox Canonical Form ++ */
 
-		Form *returnPres(std::string target);
-		Form *returnShrub(std::string target);
-		Form *returnRobot(std::string target);
-		Form *makeForm(std::string name, std::string target);
+		AForm *returnPres(std::string target);
+		AForm *returnShrub(std::string target);
+		AForm *returnRobot(std::string target);
+		AForm *makeForm(std::string name, std::string target);
 };
 
 #endif

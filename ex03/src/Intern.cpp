@@ -21,20 +21,20 @@ Intern& Intern::operator=(const Intern &copy_a) {
 }
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 
-Form	*Intern::returnPres(std::string target) {
+AForm	*Intern::returnPres(std::string target) {
 	return (new PresidentialPardonForm(target));
 }
 
-Form	*Intern::returnShrub(std::string target) {
+AForm	*Intern::returnShrub(std::string target) {
 	return (new ShrubberyCreationForm(target));
 }
 
-Form	*Intern::returnRobot(std::string target) {
+AForm	*Intern::returnRobot(std::string target) {
 	return (new RobotomyRequestForm(target));
 }
 
-Form	*Intern::makeForm(std::string name, std::string target) {
-	Form*	(Intern::*member_ptr[3])(std::string target) = {
+AForm	*Intern::makeForm(std::string name, std::string target) {
+	AForm*	(Intern::*member_ptr[3])(std::string target) = {
 		&Intern::returnPres,
 		&Intern::returnRobot,
 		&Intern::returnShrub

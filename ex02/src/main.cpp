@@ -12,8 +12,8 @@ int main() {
 	mstack.push(737);
 
 	mstack.push(0);
-	MutantStack<int>::iterator	it = mstack.begin();
-	MutantStack<int>::iterator	ite = mstack.end();
+	MutantStack<int>::itM	it = mstack.begin();
+	MutantStack<int>::itM	ite = mstack.end();
 	++it;
 	--it;
 	while (it != ite) {

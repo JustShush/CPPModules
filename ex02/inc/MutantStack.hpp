@@ -43,11 +43,11 @@ template <typename T> MutantStack<T>::~MutantStack() {
 }
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 
-template <typename T> typename MutantStack<T>::iterator MutantStack<T>::begin() {
+template <typename T> typename MutantStack<T>::itM MutantStack<T>::begin() {
 	return (std::stack<T>::c.begin());
 }
 
-template <typename T> typename MutantStack<T>::iterator MutantStack<T>::end() {
+template <typename T> typename MutantStack<T>::itM MutantStack<T>::end() {
 	return (std::stack<T>::c.end());
 }
 

@@ -106,9 +106,9 @@ const char	*Form::GradeTooLowException::what() const throw() {
 
 /* -+-+-+-+-+-+-+- Stream Operators -+-+-+-+-+-+-+- */
 std::ostream &operator<<(std::ostream& out, const Form &f) {
-	out << f.getName() << " can only be signed by personnel with grade " << f.getSignGrade() << " or higher.\n";
-	out << "It can only be executed by personnel with grade " << f.getExecGrade() << " or higher.\n";
-	out << "This document has a sign value of: " << std::boolalpha << f.getSigned() << "\n";
+	out << ORANGE << f.getName() << RESET << " can only be signed by personnel with grade " << BBLUE << f.getSignGrade() << RESET << " or higher.\n";
+	out << "It can only be executed by personnel with grade " << BBLUE << f.getExecGrade() << RESET << " or higher.\n";
+	out << "This document has a sign value of: " << YELLOW << std::boolalpha << f.getSigned() << RESET << std::endl;
 	return out;
 }
 /* -+-+-+-+-+-+-+- Stream Operators -+-+-+-+-+-+-+- */

@@ -3,10 +3,13 @@
 
 # include "./header.hpp"
 
-# include "Data.hpp"
-
 # include <iostream>
 # include <inttypes.h>
+
+typedef struct Data {
+	std::string str;
+	int i;
+} data;
 
 class Serializer {
 	private:
@@ -21,4 +24,3 @@ class Serializer {
 };
 
 #endif
-

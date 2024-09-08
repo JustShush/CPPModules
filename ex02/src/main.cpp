@@ -3,7 +3,7 @@
 Base *generate(void) {
 	int random;
 
-	srand(static_cast<unsigned int>(time(NULL)));
+	srand((unsigned) time(NULL));
 	random = rand() % 3;
 
 	switch (random) {
@@ -35,20 +35,21 @@ void identify(Base& p) {
 	try {
 		a = dynamic_cast<A&>(p);
 		std::cout << "Ref: A\n";
-	} catch(const std::exception& e) {
-		e.what();
 	}
-	try {
-		b = dynamic_cast<B&>(p);
-		std::cout << "Ref: B\n";
-	} catch(const std::exception& e) {
-		e.what();
-	}
-	try {
-		c = dynamic_cast<C&>(p);
-		std::cout << "Ref: C\n";
-	} catch(const std::exception& e) {
-		e.what();
+	catch(const std::exception& e) {
+		try {
+			b = dynamic_cast<B&>(p);
+			std::cout << "Ref: B\n";
+		}
+		catch(const std::exception& e) {
+			try {
+				c = dynamic_cast<C&>(p);
+				std::cout << "Ref: C\n";
+			}
+			catch(const std::exception& e) {
+				return ;
+			}
+		}
 	}
 }
 

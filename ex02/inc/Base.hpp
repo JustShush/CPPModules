@@ -4,7 +4,8 @@
 # include "./header.hpp"
 
 # include <iostream>
-# include <cstdlib>
+# include <cstdlib> // for rand and srand
+# include <ctime>   // for time
 
 class Base
 {

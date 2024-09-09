@@ -4,6 +4,11 @@
 
 int	main(void) {
 	{
+		// Default constructor test
+		Array<int> arr;
+		std::cout << "Size of the arr: " << arr.size() << std::endl;
+	}
+	{
 		Array<int> arr(0);
 		std::cout << ORANGE;
 		arr.Print();
@@ -27,7 +32,6 @@ int	main(void) {
 		catch(const std::exception& e) {
 			std::cerr << e.what() << '\n';
 		}
-
 	}
 
 	return 0;

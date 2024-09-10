@@ -9,14 +9,11 @@
 # include <string>
 # include <iomanip>
 
-class Converter
-{
-	private:
+class Converter {
+	public:
 		/* ++ Orthodox Canonical Form ++ */
 		Converter();
 		~Converter();
-
-	public:
 		Converter(const Converter &copy);
 		Converter& operator=(const Converter &copy_a);
 		/* ++ Orthodox Canonical Form ++ */

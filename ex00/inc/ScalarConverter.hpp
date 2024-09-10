@@ -10,9 +10,11 @@
 # include <iomanip>
 
 class ScalarConverter {
+	private:
+		ScalarConverter();
+
 	public:
 		/* ++ Orthodox Canonical Form ++ */
-		ScalarConverter();
 		~ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter& operator=(const ScalarConverter &copy_a);

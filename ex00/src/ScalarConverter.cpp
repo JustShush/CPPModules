@@ -57,7 +57,7 @@ void ScalarConverter::checkType(std::string str) {
 	ScalarConverter Conv;
 	int	i = 0;
 	int	flag = 0;
-
+	
 	if (str[i] == '-')
 		i++;
 	if (str[i] && str.find_first_not_of("-0123456789.f") == str.npos) {

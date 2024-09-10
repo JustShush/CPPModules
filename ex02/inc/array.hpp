@@ -6,8 +6,7 @@
 # include <iostream>
 
 template <typename T>
-class Array
-{
+class Array {
 private:
 	T* arr;
 	unsigned int _n;
@@ -46,9 +45,9 @@ template <typename T> Array<T>::Array() {
 }
 
 template <typename T> Array<T>::Array(const Array<T> &copy) {
-	std::cout << GREEN << "Array Copy Constructor Called" << RESET << std::endl;
 	arr = NULL;
 	*this = copy;
+	std::cout << GREEN << "Array Copy Constructor Called" << RESET << std::endl;
 }
 
 template <typename T> Array<T>& Array<T>::operator=(const Array<T> &copy_a) {

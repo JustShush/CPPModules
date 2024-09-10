@@ -7,15 +7,15 @@ int	main() {
 	data.i = 42;
 	data.str = "Forty Two";
 
-	std::cout << "Data address: " << &data << std::endl;
-	std::cout << "uint_ptr address: " << &ptr << "\n\n";
+	std::cout << "Data address: " << ORANGE << &data << RESET << std::endl;
+	std::cout << "uint_ptr address: " << PURPLE << &ptr << RESET << "\n\n";
 
 	ptr = Serializer::serialize(&data);
 
 	std::cout << "Data.i: " << data.i << std::endl;
 	std::cout << "Data.str: " << data.str << std::endl;
-	std::cout << "Data address: " << &data << std::endl;
-	std::cout << "uint_ptr address: " << &ptr << "\n\n";
+	std::cout << "Data address: " << ORANGE << &data << RESET << std::endl;
+	std::cout << "uint_ptr address: " << PURPLE << &ptr <<  RESET <<"\n\n";
 
 	Data *data2;
 
@@ -23,8 +23,8 @@ int	main() {
 
 	std::cout << "Data2->i: " << data2->i << std::endl;
 	std::cout << "Data2->str: " << data2->str << std::endl;
-	std::cout << "Data2 address: " << &data2 << std::endl;
-	std::cout << "uint_ptr address: " << &ptr << std::endl;
+	std::cout << "Data2 address: " << ORANGE << &data2 << RESET << std::endl;
+	std::cout << "uint_ptr address: " << PURPLE << &ptr << RESET << std::endl;
 
 	return 0;
 }

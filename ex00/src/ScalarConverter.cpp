@@ -47,8 +47,7 @@ void ScalarConverter::Pseudo(std::string str) {
 	if (str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0) {
 		std::cout << "float: " << str << std::endl;
 		std::cout << "double: " << str.erase(str.length() - 1) << std::endl;
-	}
-	else if (str.compare("-inf") == 0 || str.compare("+inf") == 0 || str.compare("nan") == 0) {
+	} else if (str.compare("-inf") == 0 || str.compare("+inf") == 0 || str.compare("nan") == 0) {
 		std::cout << "float: " << str << "f\n";
 		std::cout << "double: " << str << std::endl;
 	}
@@ -68,8 +67,7 @@ void ScalarConverter::checkType(std::string str) {
 			else if (flag == 1 && i == (int)str.length() - 1 && str[i] == 'f') {
 				toFloat(Conv, str);
 				return ;
-			}
-			else if (!isdigit(str[i]) || flag > 1)
+			} else if (!isdigit(str[i]) || flag > 1)
 				throw InvalidTypeException();
 			i++;
 		}
@@ -78,11 +76,9 @@ void ScalarConverter::checkType(std::string str) {
 			return ;
 		}
 		toInt(Conv, str);
-	}
-	else if((int)str.length() == 1) {
+	} else if((int)str.length() == 1) {
 		toChar(Conv, str);
-	}
-	else
+	} else
 		handlePseudo(str);
 	return ;
 }
@@ -93,8 +89,7 @@ void ScalarConverter::Convert(std::string str) {
 
 	try {
 		checkType(str);
-	}
-	catch(const std::exception& e) {
+	} catch(const std::exception& e) {
 		std::cout << e.what() << '\n';
 		return ;
 	}

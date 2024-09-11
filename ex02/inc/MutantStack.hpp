@@ -7,6 +7,7 @@
 # include <stack>
 # include <deque>
 
+// deque is a double-ended queue container, using this for fast insertions and deletions on the front or back of the container.
 template <typename T>
 class MutantStack : public std::stack <T, std::deque<T> > {
 public:

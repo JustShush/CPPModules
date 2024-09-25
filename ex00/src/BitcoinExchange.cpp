@@ -21,6 +21,10 @@ BitcoinExchange::~BitcoinExchange() {
 }
 /* ++++++++++ Orthodox Canonical Form ++++++++++ */
 
+void BitcoinExchange::setLDate(int date) {
+	lDate = date;
+}
+
 void BitcoinExchange::setFilePath(std::string filepath) {
 	_filePath = filepath;
 }
@@ -30,6 +34,7 @@ std::string BitcoinExchange::getFilePath() {
 }
 
 bool BitcoinExchange::loadDB(std::string filePath) {
+	std::string line;
 	std::ifstream file(filePath.c_str());
 	if (!file) {
 		std::cerr << ON_RED << "ERROR: Could not open the file " << filePath << std::endl;
@@ -41,6 +46,21 @@ bool BitcoinExchange::loadDB(std::string filePath) {
 
 	// start loading the DB
 
+	// set the lowest date to 0, cuz theres is not yet
+	setLDate(0);
+
+	std::string date;
+	float value;
+	std::istringstream iss(line);
+
+	while (!file.eof()) {
+		if (getline(file, line, ',') && iss >> value) {
+			// save the data into the DB
+			_db.insert(std::make_pair(date, value));
+		}
+	}
+
+	// printDB();
 	return true;
 }
 

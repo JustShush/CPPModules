@@ -5,6 +5,7 @@
 
 # include <iostream>
 # include <map>
+# include <sstream>
 # include <fstream>
 # include <string>
 
@@ -22,11 +23,13 @@ public:
 	/* ++ Orthodox Canonical Form ++ */
 
 	// Getters / Setters
+	void setLDate(int date);
 	void setFilePath(std::string filepath);
 	std::string getFilePath();
 
 	// Addicional Functions
 	bool loadDB(std::string filePath);
 };
+
 
 #endif

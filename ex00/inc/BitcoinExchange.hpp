@@ -11,7 +11,7 @@
 
 class BitcoinExchange {
 private:
-	std::map<std::string, float> _db;
+	std::map<int, float> _db;
 	int lDate;
 	std::string _filePath;
 public:
@@ -28,8 +28,21 @@ public:
 	std::string getFilePath();
 
 	// Addicional Functions
-	bool loadDB(std::string filePath);
+	bool loadDB(std::string argv);
+	bool startExchange(std::string argv);
+
+	std::pair<int, float> checkLine(std::string line);
+	bool printData(std::pair<int, float> pair);
 };
 
+std::string	dashRM(std::string line);
+int	checkDate(int i);
+
+template <typename T>
+std::string toString(const T& value) {
+	std::stringstream ss;
+	ss << value;  // Insert the value (int, float, etc.) into the stream
+	return ss.str(); // Return the string
+}
 
 #endif

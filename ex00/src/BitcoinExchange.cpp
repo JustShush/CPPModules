@@ -33,15 +33,16 @@ std::string BitcoinExchange::getFilePath() {
 	return _filePath;
 }
 
-bool BitcoinExchange::loadDB(std::string filePath) {
+bool BitcoinExchange::loadDB(std::string argv) {
 	std::string line;
+	std::string filePath = "../data.csv";
 	std::ifstream file(filePath.c_str());
 	if (!file) {
 		std::cerr << ON_RED << "ERROR: Could not open the file " << filePath << std::endl;
 		return false;
 	}
 
-	setFilePath(filePath);
+	setFilePath(argv);
 	std::cout << getFilePath() << std::endl;
 
 	// start loading the DB
@@ -49,18 +50,77 @@ bool BitcoinExchange::loadDB(std::string filePath) {
 	// set the lowest date to 0, cuz theres is not yet
 	setLDate(0);
 
-	std::string date;
-	float value;
-	std::istringstream iss(line);
-
 	while (!file.eof()) {
-		if (getline(file, line, ',') && iss >> value) {
-			// save the data into the DB
+		getline(file, line);
+		std::string cleanLine = dashRM(line);
+
+		int date = 0;
+		char temp = ','; // this is just to save the ','
+		float value = 0;
+
+		std::istringstream iss(cleanLine);
+		if (iss >> date >> temp >> value) {
+			if (checkDate(date) != 8) return false;
 			_db.insert(std::make_pair(date, value));
 		}
 	}
 
-	// printDB();
+	for (std::map<int, float>::iterator it = _db.begin(); it != _db.end(); ++it) {
+		std::cout << it->first << ": " << it->second << std::endl;
+	}
+
+	if (!startExchange(argv)) return false;
+
+	return true;
+}
+
+std::pair<int, float> BitcoinExchange::checkLine(std::string line) {
+	int date = 0;
+	float value = 0;
+	char end = '\0'; // end of line
+	char temp; // this is just to check the '|'
+
+	if (checkDate(date) != 0) line.clear();
+	else line = dashRM(line);
+
+	std::istringstream iss(line);
+
+	iss >> date >> temp >> value >> end;
+	if (temp != '|' || (end && end != 'f')) value = 0;
+	return (std::make_pair(date, value));
+
+}
+
+bool BitcoinExchange::printData(std::pair<int, float> pair) {
+
+	(void)pair;
+	// make checks and then print to the console
+
+	return true;
+}
+
+bool BitcoinExchange::startExchange(std::string argv) {
+
+	std::string line;
+	std::ifstream file(argv.c_str());
+	if (!file) {
+		std::cerr << ON_RED << "ERROR: Could not open the file " << argv << RESET << std::endl;
+		return false;
+	}
+	if (file.eof()) {
+		std::cerr << ON_RED << "ERROR: " << argv << " is an empty file!" << RESET << std::endl;
+		return false;
+	}
+	int i = 0;
+	while (getline(file, line)) {
+		if (line.compare("date | value") == 0) continue;
+		if (i == 0) {
+			std::cerr << ON_RED << "ERROR: Invalid Header!" << RESET <<  std::endl;
+			return false;
+		}
+		printData(checkLine(line));
+	}
+
 	return true;
 }
 

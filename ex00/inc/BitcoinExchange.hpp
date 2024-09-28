@@ -8,6 +8,7 @@
 # include <sstream>
 # include <fstream>
 # include <string>
+# include <iomanip>
 
 class BitcoinExchange {
 private:
@@ -33,10 +34,40 @@ public:
 
 	std::pair<int, float> checkLine(std::string line);
 	bool printData(std::pair<int, float> pair);
+	void printInvalidInput(std::pair<int, float> pair);
+	void printValue(std::pair<int, float> pair);
+	bool invalidInput(std::pair<int, float> pair);
+
+	/* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */
+	class negativeNumber : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
+
+	class thousandNumber : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
+
+	class noDayInMonth : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
+
+	class invalidInputExp : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
+	/* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */
+
 };
 
 std::string	dashRM(std::string line);
 int	checkDate(int i);
+bool isLeapYear(int year);
+int daysInMonth(int yyyymmdd);
+std::string trim(const std::string &s);
+std::string printDate(const int date);
 
 template <typename T>
 std::string toString(const T& value) {

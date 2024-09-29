@@ -65,16 +65,12 @@ bool BitcoinExchange::loadDB(std::string argv) {
 		}
 	}
 
-	/* for (std::map<int, float>::iterator it = _db.begin(); it != _db.end(); ++it) {
-		std::cout << it->first << ": " << it->second << std::endl;
-	} */
-
 	if (!startExchange(argv)) return false;
 
 	return true;
 }
 
-//*
+// ****
 
 bool BitcoinExchange::startExchange(std::string argv) {
 	std::string line;
@@ -202,6 +198,7 @@ bool BitcoinExchange::invalidInput(std::pair<int, float> pair) {
 	return false;
 }
 
+/* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */
 const char* BitcoinExchange::negativeNumber::what() const throw() {
 	return("Invalid number! It has to be a positive number!");
 }
@@ -217,6 +214,7 @@ const char* BitcoinExchange::noDayInMonth::what() const throw() {
 const char* BitcoinExchange::invalidInputExp::what() const throw() {
 	return("Invalid Input!");
 }
+/* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */
 
 /* bool loadFromFile(const std::string& filename) {
 	std::ifstream file(filename);

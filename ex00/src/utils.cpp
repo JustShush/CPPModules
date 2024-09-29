@@ -14,11 +14,6 @@ std::string	dashRM(std::string line) {
 	return (line);
 }
 
-/**
- * Basicly this just checks if there are 8 numbers in the date 12345678
- * @param i The date to check
- * @return the number of digits in a number
- */
 int	checkDate(int i) {
 	if (i == 0) return 1;
 
@@ -51,10 +46,6 @@ bool isLeapYear(int year) {
 	}
 }
 
-/**
- * @param yyyymmdd year month and day has an int all together YYYYMMDD
- * @return The number of days for that month
- */
 int daysInMonth(int yyyymmdd) {
 	// Extract year, month, and day
 	int year = yyyymmdd / 10000;

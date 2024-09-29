@@ -38,7 +38,7 @@ public:
 	void printValue(std::pair<int, float> pair);
 	bool invalidInput(std::pair<int, float> pair);
 
-	/* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */
+	/* -- Exceptions -- */
 	class negativeNumber : public std::exception {
 	public:
 		virtual const char* what() const throw();
@@ -58,22 +58,34 @@ public:
 	public:
 		virtual const char* what() const throw();
 	};
-	/* /-/-/-/-/-/-/-/-/ Exceptions /-/-/-/-/-/-/-/-/ */
+	/* -- Exceptions -- */
 
 };
 
+/**
+ * Removes all the '-' from a std::string.
+ *  
+ * @param line The line to remove the '-' from
+ * @return A std::string with the same line without the '-'
+ */
 std::string	dashRM(std::string line);
+
+/**
+ * Basicly this just checks if there are 8 numbers in the date 12345678
+ * @param i The date to check (YYYYMMDD)
+ * @return the number of digits in a number
+ */
 int	checkDate(int i);
 bool isLeapYear(int year);
+
+/**
+ * @param yyyymmdd year month and day has an int all together YYYYMMDD
+ * @return The number of days for that month
+ */
 int daysInMonth(int yyyymmdd);
+
+// Removes the spaces from the end and the start of a std::string
 std::string trim(const std::string &s);
 std::string printDate(const int date);
-
-template <typename T>
-std::string toString(const T& value) {
-	std::stringstream ss;
-	ss << value;  // Insert the value (int, float, etc.) into the stream
-	return ss.str(); // Return the string
-}
 
 #endif

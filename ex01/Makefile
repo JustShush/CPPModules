@@ -1,12 +1,12 @@
 # -*- MakeFile -*-
 
-NAME = Bitcoin
+NAME = RPN
 
 CXX = @c++
 
 CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRC = main.cpp BitcoinExchange.cpp
+SRC = main.cpp RPN.cpp
 
 SRCS = $(addprefix src/, $(SRC))
 

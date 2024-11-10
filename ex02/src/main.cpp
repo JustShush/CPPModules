@@ -23,21 +23,29 @@ bool checkNumb(char *str) {
 	return true;
 }
 
+bool is_sorted(int argc, char *argv[]) {
+	for(int i = 1; i < argc - 1; i++) {
+		int current = atoi(argv[i]);
+		int next = atoi(argv[i + 1]);
+
+		if (current > next)
+			return false;
+	}
+	return true;
+}
+
 bool checks(int argc, char *argv[]) {
 
 	int i = 1;
-	bool sorted = false;
 
 	if (same(argc, argv))
 		throw std::runtime_error(std::string(URED) + "Repeating numbers!!!!" + std::string(RESET));
 	while (i < argc) {
-		if (checkNumb(argv[i]))
+		if (!checkNumb(argv[i]))
 			throw std::runtime_error(std::string(URED) + "Invalid Number!" + std::string(RESET)); // std::string(argv[i])
-		if (i + 1 < argc && atoi(argv[i]) > atoi(argv[i + 1]))
-			sorted = true;
 		i++;
 	}
-	if (sorted)
+	if (is_sorted(argc, argv))
 		throw std::runtime_error(std::string(URED) + "Already Sorted!" + std::string(RESET));
 	return false;
 }

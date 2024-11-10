@@ -88,6 +88,22 @@ void PmergeMe::pairToVetor(int argc, char *argv[]) {
 		firstSortVector(i);
 }
 
+void PmergeMe::pairToList(int argc, char *argv[]) {
+	int	i;
+	int	n1 = 0;
+
+	numb = argc - 1;
+	for (i = 1; i <= numb; i++)
+	{
+		n1 = atoi(argv[i++]);
+		if (i <= numb)
+			list.push_back(makePair(n1, atoi(argv[i])));
+		else
+			list.push_back(makePair(-1, n1));
+	}
+	list.sort();
+}
+
 /**
  * binary search algorithm to find the correct index where a value b should be inserted
  * into a sorted vector vec.
@@ -120,6 +136,13 @@ void	PmergeMe::insertFirst(std::vector<std::pair<int, int> > &vec) {
 	}
 }
 
+void printVector(const std::vector<int>& vec) {
+    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+}
+
 void PmergeMe::FordJohnson() {
 
 	insertFirst(vec);
@@ -142,16 +165,49 @@ void PmergeMe::FordJohnson() {
 	}
 }
 
+void	PmergeMe::output(int argc, char *argv[], std::clock_t vEnd, std::clock_t lEnd) {
+
+	std::cout << "Before:	";
+	for (int i = 1; i < argc; i++) {
+
+		std::cout << atoi(argv[i]);
+		if (i + 1 != argc)
+			std::cout << " ";
+	}
+	std::cout << "\n";
+	std::cout << "After:	";
+	printContainer(sortedVec);
+
+	std::cout << "After:	";
+	printContainer(sortedList);
+
+	std::cout << "Time to process a range of " << argc - 1 << " elements with [";
+	printFunctionName(sortedVec);
+	std::cout << "] : " << static_cast<double>(vEnd)/CLOCKS_PER_SEC * 1000 << " μs microsec\n";
+
+	std::cout << "Time to process a range of " << argc - 1 << " elements with [";
+	printFunctionName(sortedList);
+	std::cout << "] : " << static_cast<double>(lEnd)/CLOCKS_PER_SEC * 1000 << " μs microsec \n";
+}
+
 void PmergeMe::start(int argc, char *argv[]) {
+
+	std::clock_t vecStart;
+	std::clock_t vecEnd;
+	std::clock_t listStart;
+	std::clock_t listEnd;
 
 	populateJBSequence();
 
+	vecStart = std::clock();
 	pairToVetor(argc, argv);
 	FordJohnson();
+	vecEnd = std::clock() - vecStart;
 
-	pairToVetor(argc, argv);
+	listStart = std::clock();
+	pairToList(argc, argv);
 	FordJohnson();
-	(void) argc;
-	(void) argv;
+	listEnd = std::clock() - listStart;
 
+	output(argc, argv, vecEnd, listEnd);
 }

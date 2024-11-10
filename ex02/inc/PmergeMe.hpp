@@ -18,6 +18,7 @@ private:
 	int numb;
 	std::vector<std::pair<int, int> > vec;
 	std::vector<int> sortedVec;
+	std::list<std::pair<int, int> > list;
 	std::list<int> sortedList;
 	std::vector<u_int64_t> JBSequence;
 public:
@@ -36,10 +37,10 @@ public:
 
 	void firstSortVector(int start);
 	void pairToVetor(int argc, char *argv[]);
+	void pairToList(int argc, char *argv[]);
 
-
-	void start(int argc, char *argv[]);
-
+	void start(int argc, char *argv[]);;
+	void output(int argc, char *argv[], std::clock_t vEnd, std::clock_t lEnd);
 
 	/**
 	 *  it inserts the first element of each pair
@@ -49,5 +50,23 @@ public:
 	void FordJohnson(void);
 
 };
+
+template <typename T> void printFunctionName(T &) {
+
+	std::string	pretty = __PRETTY_FUNCTION__;
+	pretty.erase(0 , pretty.find('=') + 2);
+	pretty.erase(pretty.size() - 1);
+	if (pretty.substr(3, 9) == "::__cxx11")
+		pretty.erase(3, 9);
+	std::cout << pretty;
+}
+
+template <typename T> void printContainer(T &container) {
+
+	for (typename T::iterator it = container.begin(); it != container.end(); it++)
+		std::cout << *it << " ";
+	std::cout << "\n";
+}
+
 
 #endif

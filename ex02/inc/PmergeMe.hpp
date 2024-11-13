@@ -42,12 +42,16 @@ public:
 	void start(int argc, char *argv[]);;
 	void output(int argc, char *argv[], std::clock_t vEnd, std::clock_t lEnd);
 
+	std::list<int>::iterator binarySearchList(std::list<int> &list, int b);
+
 	/**
 	 *  it inserts the first element of each pair
 	 * into the sortedVector if the first element is not -1
 	 */
 	void insertFirst(std::vector<std::pair<int, int> > &vec);
-	void FordJohnson(void);
+	void pushFirst(std::list<std::pair<int, int> > &list);
+	void FordJohnsonVec(void);
+	void FordJohnsonList(void);
 
 };
 

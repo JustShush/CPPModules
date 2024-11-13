@@ -126,6 +126,22 @@ int	binaryInsert(std::vector<int> &v, int b) {
 	return (low);
 }
 
+std::list<int>::iterator	PmergeMe::binarySearchList(std::list<int> &list, int b) {
+
+	std::list<int>::iterator	low = list.begin();
+	std::list<int>::iterator	high = list.end();
+	--high;
+	while (low != high) {
+		std::list<int>::iterator mid = low;
+		std::advance(mid, std::distance(low, high) / 2);
+		if (b < *mid)
+			high = mid;
+		else
+			low = ++mid;
+	}
+	return low;
+}
+
 void	PmergeMe::insertFirst(std::vector<std::pair<int, int> > &vec) {
 
 	std::vector<std::pair<int, int> >::iterator	it;
@@ -136,14 +152,24 @@ void	PmergeMe::insertFirst(std::vector<std::pair<int, int> > &vec) {
 	}
 }
 
-void printVector(const std::vector<int>& vec) {
-    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
+void PmergeMe::pushFirst(std::list<std::pair<int, int> > &list) {
+
+	std::list<std::pair<int, int> >::iterator	a;
+	for (a = list.begin(); a != list.end(); a++) {
+		if (a->first == -1)
+			continue ;
+		sortedList.push_back(a->first);
+	}
 }
 
-void PmergeMe::FordJohnson() {
+void printVector(const std::vector<int>& vec) {
+	for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
+void PmergeMe::FordJohnsonVec() {
 
 	insertFirst(vec);
 	int	x = 0;
@@ -162,6 +188,37 @@ void PmergeMe::FordJohnson() {
 		y += JBSequence[i];
 		if (y + JBSequence[i] > vec.size())
 			y = vec.size();
+	}
+}
+
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+void	PmergeMe::FordJohnsonList() {
+
+	pushFirst(list);
+	int	x = 0;
+	int	y = JBSequence[2];
+	int	w = 0;
+	if ((int)vec.size() == 1)
+		y = 1;
+	for (int i = 3; i < (int)JBSequence.size() && y <= (int)list.size(); i++)
+	{
+		for (x = y - 1; x >= w;)
+		{
+			std::list<int>::iterator last = sortedList.end();
+			--last;
+			std::list<std::pair<int, int> >::iterator it = list.begin();
+			std::advance(it, x);
+			if (it->second < *last)
+				sortedList.insert(binarySearchList(sortedList, it->second), it->second);
+			else
+				sortedList.push_back(it->second);
+			x--;
+		}
+		w = y;
+		y += JBSequence[i];
+		if (y >= (int)list.size())
+			y = list.size();
 	}
 }
 
@@ -201,12 +258,12 @@ void PmergeMe::start(int argc, char *argv[]) {
 
 	vecStart = std::clock();
 	pairToVetor(argc, argv);
-	FordJohnson();
+	FordJohnsonVec();
 	vecEnd = std::clock() - vecStart;
 
 	listStart = std::clock();
 	pairToList(argc, argv);
-	FordJohnson();
+	FordJohnsonList();
 	listEnd = std::clock() - listStart;
 
 	output(argc, argv, vecEnd, listEnd);

@@ -118,4 +118,7 @@ fclean: clean
 	@/bin/rm -rf $(NAME) ${OBJ_DIR}
 	$(MSG3)
 
+test:
+	./btc test.txt
+
 re: fclean all

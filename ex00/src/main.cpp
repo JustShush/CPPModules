@@ -3,7 +3,7 @@
 int main(int argc, char *argv[]) {
 
 	if (argc != 2) {
-		std::cout << RED << "Invalid input!\n" << ORANGE << "Usage: ./btc <args>" << std::endl;
+		std::cout << RED << "Invalid input!\n" << ORANGE << "Usage: ./btc <file_path>" << std::endl;
 		return -1;
 	}
 

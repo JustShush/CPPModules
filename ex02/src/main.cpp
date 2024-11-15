@@ -4,7 +4,7 @@ bool same(int argc, char *argv[]) {
 
 	for (int i = 1; i < argc; i++)
 		for (int j = i + 1; j < argc; j++)
-			if (std::string(argv[j]) == std::string(argv[i]))
+			if (atoi(argv[j]) == atoi(argv[i]))
 				return true;
 	return false;
 }

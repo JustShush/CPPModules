@@ -232,19 +232,19 @@ void	PmergeMe::output(int argc, char *argv[], std::clock_t vEnd, std::clock_t lE
 			std::cout << " ";
 	}
 	std::cout << "\n";
-	std::cout << "After:	";
+	std::cout << "Vec After:	" << CYAN;
 	printContainer(sortedVec);
 
-	std::cout << "After:	";
+	std::cout << "List After:	" << ORANGE;
 	printContainer(sortedList);
 
-	std::cout << "Time to process a range of " << argc - 1 << " elements with [";
+	std::cout << "Time to process " << argc - 1 << " elements with [" << CYAN;
 	printFunctionName(sortedVec);
-	std::cout << "] : " << static_cast<double>(vEnd)/CLOCKS_PER_SEC * 1000 << " μs microsec\n";
+	std::cout << RESET << "] : " << static_cast<double>(vEnd)/CLOCKS_PER_SEC * 1000 << " μs microsec\n";
 
-	std::cout << "Time to process a range of " << argc - 1 << " elements with [";
+	std::cout << "Time to process " << argc - 1 << " elements with [" << ORANGE;
 	printFunctionName(sortedList);
-	std::cout << "] : " << static_cast<double>(lEnd)/CLOCKS_PER_SEC * 1000 << " μs microsec \n";
+	std::cout << RESET << "] : " << static_cast<double>(lEnd)/CLOCKS_PER_SEC * 1000 << " μs microsec \n";
 }
 
 void PmergeMe::start(int argc, char *argv[]) {

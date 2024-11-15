@@ -69,7 +69,7 @@ template <typename T> void printContainer(T &container) {
 
 	for (typename T::iterator it = container.begin(); it != container.end(); it++)
 		std::cout << *it << " ";
-	std::cout << "\n";
+	std::cout << "\n" << RESET;
 }
 
 

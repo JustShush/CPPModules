@@ -49,14 +49,14 @@ void RPN::isRPN(std::string str) {
 	while (iss >> input) {
 
 		if (atoi(input.c_str()) < 0)
-			throw std::runtime_error(std::string(URED) + "ERROR: Invalid input! (atoi)" + std::string(RESET));
+			throw std::runtime_error(std::string(URED) + " Invalid input! (atoi)" + std::string(RESET));
 		if (input.find_first_not_of("0123456789") == std::string::npos)
 			_numb++;
 		if (input.size() == 1 && strchr("+-*/", input[0]))
 			_op++;
 	}
 	if (_numb - 1 != _op || _op == 0)
-		throw std::runtime_error(std::string(URED) + "ERROR: Invalid Expression! (1+1+)" + std::string(RESET));
+		throw std::runtime_error(std::string(URED) + " Invalid Expression! <1 1+>" + std::string(RESET));
 }
 
 void RPN::execRPN(std::string str) {
@@ -67,7 +67,7 @@ void RPN::execRPN(std::string str) {
 	if (str.find_first_not_of("0123456789") == std::string::npos)
 		_stack.push(i);
 	else if (_stack.size() <= 1)
-		throw std::runtime_error(std::string(URED) + "ERROR: Stack is EMPTY!" + std::string(RESET));
+		throw std::runtime_error(std::string(URED) + " Invalid Character!" + std::string(RESET));
 	else if (str.size() == 1 && strchr("+-*/", str[0])) {
 		n1 = _stack.top();
 		_stack.pop();
@@ -77,7 +77,7 @@ void RPN::execRPN(std::string str) {
 	} else if (isspace(i))
 		;
 	else
-		throw std::runtime_error(std::string(URED) + "ERROR: Invalid Character!" + std::string(RESET));
+		throw std::runtime_error(std::string(URED) + " Something Went Wrong!" + std::string(RESET));
 }
 
 int RPN::opRPN(int n, int n1, int op) {

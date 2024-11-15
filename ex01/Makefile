@@ -118,4 +118,10 @@ fclean: clean
 	@/bin/rm -rf $(NAME) ${OBJ_DIR}
 	$(MSG3)
 
+rpn:
+	./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+
+2:
+	./RPN "111 2 32 1 3 1 12 2 3 41 2 + - + - + - + - + -"
+
 re: fclean all

@@ -38,7 +38,7 @@ bool BitcoinExchange::loadDB(std::string argv) {
 	std::string filePath = "../data.csv";
 	std::ifstream file(filePath.c_str());
 	if (!file) {
-		std::cerr << ON_RED << "ERROR: Could not open the file " << filePath << std::endl;
+		std::cerr << ON_RED << "ERROR: Could not open the file " << filePath << RESET << std::endl;
 		return false;
 	}
 
